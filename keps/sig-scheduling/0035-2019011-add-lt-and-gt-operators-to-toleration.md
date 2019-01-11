@@ -52,21 +52,30 @@ A good summary is probably at least a paragraph in length.
 
 ## Motivation
 
-This section is for explicitly listing the motivation, goals and non-goals of this KEP.
-Describe why the change is important and the benefits to users.
-The motivation section can optionally provide links to [experience reports][] to demonstrate the interest in a KEP within the wider Kubernetes community.
+Kubernetes default scheduler, by default, schedules pods “equally” distributed across all the nodes in a cluster. This, in turn, may result in resource fragmentation, and pods with large resource requirements may not get scheduled due to it.
 
-[experience reports]: https://github.com/golang/go/wiki/ExperienceReports
+It may be not a big problem in cases most workloads are long running, since:
+- HA is most important (at least more important than resource utilization).
+- Resource requirements don’t often change, and
+- Cluster admins may work periodically on checking free resource and resource planning
+
+While for batch oriented workloads, it becomes a real problem:
+- Resource utilization is more important than HA (batch jobs may even not require HA)
+- Hard to estimate resource requirement
+- Having large-size pods pending costs
+- User would sometimes rather have small-size pods pending than being evicted
+
+For example, in Genome/DNA Sequencing cases, the sequencing workflows usually come with large-size pods in beginning steps, followed by a bunch of small size pods. Pending large-size pods will block corresponding workflows from the very beginning.
+
+This particular proposal involves avoiding such resource fragmentation in a cluster using taint-toleration functionality **by reserving nodes for large pods**, specifically by adding “Gt” and “Lt” toleration.operator values.
 
 ### Goals
 
-List the specific goals of the KEP.
-How will we know that this has succeeded?
+TBD
 
 ### Non-Goals
 
-What is out of scope for his KEP?
-Listing non-goals helps to focus discussion and make progress.
+TBD
 
 ## Proposal
 
