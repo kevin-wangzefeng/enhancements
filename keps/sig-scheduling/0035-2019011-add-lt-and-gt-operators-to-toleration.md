@@ -87,10 +87,11 @@ TBD
 As it’s hard to predict when a pod comes with large resource requests, the easiest way to implement is using resource reservation.
 
 Original semantic would look like the following:
-```
-Add some special labels on nodes, saying that:
-    I’m reserved for only pods requesting more than 4U8G, please don’t schedule pods requesting less than 4U8G on me.
-```
+
+- Add some special labels on nodes, saying that:
+> I’m reserved for only pods requesting more than 4U8G,  
+> please don’t schedule pods requesting less than 4U8G on me.
+
 
 Ideally, to implement this semantic, we may have something like “podselector” on node, matching pod requests.
 And when scheduling pods, scheduler checks pod resource requests and the podselector on nodes, to prevent inappropriate pod from scheduling onto the reserved node.
