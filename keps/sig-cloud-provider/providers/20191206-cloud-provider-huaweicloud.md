@@ -47,7 +47,7 @@ This is a KEP for adding `Cloud Provider For HUAWEI CLOUD` into the Kubernetes e
 ## Summary
 
 [HUAWEI CLOUD Controller Manager](https://github.com/huawei-cloudnative/cloud-provider-huaweicloud) is an external cloud 
-controller manager for running kubernetes in a HUAWEI Cloud cluster. It's original open sourced project is https://github.com/huawei-cloudnative/cloud-provider-huaweicloud.
+controller manager for running kubernetes in a HUAWEI CLOUD cluster. It's original open sourced project is https://github.com/huawei-cloudnative/cloud-provider-huaweicloud.
 
 
 ## Motivation
@@ -56,7 +56,7 @@ controller manager for running kubernetes in a HUAWEI Cloud cluster. It's origin
 
 `Cloud Provider For HUAWEI CLOUD` provides an external cloud controller manager for users.
 
-In this project, what we dedicated focus is provide a reliable and optimized implementation of `Cloud Controller Manager` 
+In this project, what we dedicated focus is to provide a reliable and optimized implementation of `Cloud Controller Manager` 
 which satisfies [cloudprovider.Interface](https://github.com/kubernetes/kubernetes/blob/919871e86aebf9e0a640a730d01957075d3a29be/staging/src/k8s.io/cloud-provider/cloud.go#L43).
 
 ### Non-Goals
@@ -70,7 +70,7 @@ The networking and storage support for Kubernetes are out of the scope that will
 
 ### Repository Requirements
 
-[HUAWEI CLOUD Controller Manager](https://github.com/huawei-cloudnative/cloud-provider-huaweicloud) is a implementation of
+[HUAWEI CLOUD Controller Manager](https://github.com/huawei-cloudnative/cloud-provider-huaweicloud) is an implementation of
 [Kubernetes Cloud Controller Manager](https://kubernetes.io/docs/tasks/administer-cluster/running-cloud-controller/). 
 
 ### User Experience Reports
@@ -120,7 +120,7 @@ Technical leads take the responsibility of maintain this project:
 ## Proposal
 
 We need a repository under the Kubernetes organization to host our cloud provider specific implementation.
-We'd like HUAWEI CLOUD provider would be a subproject of Kubernetes community. 
+We'd like HUAWEI CLOUD provider to become a subproject of Kubernetes community. 
 
 ### Subproject Leads
 
@@ -131,7 +131,7 @@ We'd like HUAWEI CLOUD provider would be a subproject of Kubernetes community.
 
 We would like a repository named `kubernetes/cloud-provider-huaweicloud` to host HUAWEI CLOUD specific code.
 
-The owner of the subproject can be the subject leads listed on above.
+The owners of the subproject can be the subject leads listed on above.
 
 ### Meetings
 
